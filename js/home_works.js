@@ -100,12 +100,11 @@ const timer = () => {
   let min = Math.floor((seconds - hrs * 3600) / 60);
   let sec = seconds % 60;
 
-  if (hrs < 10) hrs = '0' + hrs;
-  if (min < 10) min = '0' + min;
-  if (sec < 10) sec = '0' + sec;
+  if (hrs < 10) hrs = "0" + hrs;
+  if (min < 10) min = "0" + min;
+  if (sec < 10) sec = "0" + sec;
   watch.innerHTML = `${hrs}:${min}:${sec}`;
 };
-
 
 startBtn.onclick = () => {
   if (!interval) {
@@ -113,16 +112,19 @@ startBtn.onclick = () => {
       seconds++;
       timer();
     }, 1000);
+    //startBtn.disabled = true
   }
-  stopBtn.onclick = () => {
-    clearInterval(interval);
-    interval = null;
-  };
-  resetBtn.onclick = () => {
-    clearInterval(interval);
-    seconds = 0;
-    interval = null;
-    timer();
-  };
+};
+resetBtn.onclick = () => {
+  clearInterval(interval);
+  seconds = 0;
+  interval = null;
+  timer();
+  //startBtn.disabled = false
+};
+stopBtn.onclick = () => {
+  clearInterval(interval);
+  interval = null;
+  //startBtn.disabled = false
 };
 timer();
