@@ -41,5 +41,4 @@ function onScroll() {
     IsBottom();
 }
 
-// Add the scroll event listener
 window.addEventListener("scroll", onScroll);
